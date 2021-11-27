@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "61a23106c776db36a50db373"
+  },
+  "username": "nghia123",
+  "password": "832832q",
+  "email": "nghia321@gmail.com",
+  "decription": "abcxyz",
+  "fullname": "Huynh Trong Nghia",
+  "gender": "nam",
+  "date_of_birth": "2000-01-10",
+  "address": "72, Wall Street",
+  "phone_number": "0123456789",
+  "total_top": "0",
+  "role": "2",
+  "badge_id": "0"
+}]
