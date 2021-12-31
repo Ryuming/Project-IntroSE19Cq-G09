@@ -6,7 +6,7 @@ const siteController = require('../app/controllers/SiteController');
 // newsController.index
 router.post('/checklogin', siteController.checklogin);
 router.get('/login', siteController.login);
-router.get('/search', siteController.search);
+router.get('/search', siteController.search)
 router.get('/', siteController.index);
 
 

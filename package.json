@@ -8,7 +8,8 @@
     "start": "nodemon --inspect src/index.js ",
     "postinstall": "patch-package",
     "watch": "node-sass --watch src/resource/scss/ -o src/public/css/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,7 @@
     "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "express-handlebars": "^5.3.3",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.2",

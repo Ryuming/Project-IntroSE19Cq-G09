@@ -1,18 +1,111 @@
-<div class="mt-4">
-    <form method="POST" action="">
-        <div class="form-group">
-            <label for="search-input">Từ khóa</label>
-            <input type="text" name="q" class="form-control" id="search-input" aria-describedby="emailHelp"
-                placeholder="Nhập từ khóa...">
+<main>
+    <nav class="nav">
+        <div class="nav-categories">
+            <div class="dropdown nav-categories__select">
+                <button class="btn btn-secondary dropdown-toggle nav-dropdown-btn" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Danh mục
+                </button>
+                <div class="dropdown-menu nav-dropdown-list nav-dropdown-list-categories"
+                    aria-labelledby="dropdownMenuButton">
+                    <ul class="row">
+                        <li class="col-6"><a href="#" class="category">Hobbies</a></li>
+                        <li class="col-6"><a href="#" class="category">Social</a></li>
+                        <li class="col-6"><a href="#" class="category">Video</a></li>
+                        <li class="col-6"><a href="#" class="category">Random</a></li>
+                        <li class="col-6"><a href="#" class="category">Arts</a></li>
+                        <li class="col-6"><a href="#" class="category">Tech</a></li>
+                        <li class="col-6"><a href="#" class="category">Gaming</a></li>
+                        <li class="col-6"><a href="#" class="category">Science</a></li>
+                        <li class="col-6"><a href="#" class="category">Exchange</a></li>
+                        <li class="col-6"><a href="#" class="category">Pets</a></li>
+                        <li class="col-6"><a href="#" class="category">Entertainment</a>
+                        </li>
+                        <li class="col-6"><a href="#" class="category">Education</a></li>
+                        <li class="col-6"><a href="#" class="category">Q&amp;As</a></li>
+                        <li class="col-6"><a href="#" class="category">Politics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown nav-categories__select">
+                <button class="btn btn-secondary dropdown-toggle nav-dropdown-btn" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tags
+                </button>
+                <div class="dropdown-menu nav-dropdown-list nav-dropdown-list-tags"
+                    aria-labelledby="dropdownMenuButton">
+                    <ul class="row">
+                        <li class="col-6"><a href="#" class="category">gaming</a></li>
+                        <li class="col-6"><a href="#" class="category">nature</a></li>
+                        <li class="col-6"><a href="#" class="category">entertainment</a></li>
+                        <li class="col-6"><a href="#" class="category">selfie</a></li>
+                        <li class="col-6"><a href="#" class="category">camera</a></li>
+                        <li class="col-6"><a href="#" class="category">funny</a></li>
+                        <li class="col-6"><a href="#" class="category">dreams</a></li>
+                        <li class="col-6"><a href="#" class="category">life</a></li>
+                        <li class="col-6"><a href="#" class="category">social</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="gender-input">Từ khóa</label>
-            <select type="text" name="gender" class="form-control" id="gender-input" >
-                <option value="">---Chọn---</option>
-                <option value="male">Nam</option>
-                <option value="female">Nữ</option>
-            </select>   
+        <div class="nav-menu">
+            <ul>
+                <li class="active"><a href="#">Mới nhất </a></li>
+                <li><a href="#">Nhiều like nhất </a></li>
+                <li><a href="#">Chưa đọc </a></li>
+                <li><a href="#">Xem nhiều nhất </a></li>
+                <li><a href="#">Bảng xếp hạng thành viên </a></li>
+            </ul>
         </div>
-        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-    </form>
-</div>
+    </nav>
+    <div class="posts">
+        <div class="posts__head">
+            <div class="posts__topic">Tiêu đề</div>
+            <div class="posts__category">Danh mục</div>
+            <div class="posts__users">Thành viên phản hồi</div>
+            <div class="posts__replies">Số phản hồi</div>
+            <div class="posts__views">Lượt xem</div>
+            <div class="posts__activity">Thời gian</div>
+        </div>
+        <div class="posts__body">
+            {{#each document}}
+            <div class="posts__item {{#ifEven @index}}bg-f2f4f6{{/ifEven}}">
+                <div class="posts__section-left">
+                    <div class="posts__topic">
+                        <div class="posts__content">
+                            <a href="#">
+                                <h3>{{this.title}}</h3>
+                            </a>
+
+                            <div class="posts__tags tags">
+                                {{#each this.array}}
+                                <a href="#" class= "" >{{this}}</a>
+                                {{/each}}
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="posts__category"><a href="#" class="category"><i
+                                class="bg-368f8b"></i>{{this.category}}</a>
+                    </div>
+                </div>
+                <div class="posts__section-right">
+                    <div class="posts__users">
+                        <div>
+                            <a href="#" class="avatar"><img src="/img/user_image_default.png" alt="avatar"></a>
+                        </div>
+                        <div>
+                            <a href="#" class="avatar"><img src="/img/user_image_default.png" alt="avatar"></a>
+                        </div>
+                    </div>
+                    <div class="posts__replies">{{this.reply}}</div>
+                    <div class="posts__views">{{this.view}}</div>
+                    <div class="posts__activity">{{this.time}}</div>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+        <div class="posts__btn"> Xem thêm</div>
+    </div>
+</main>

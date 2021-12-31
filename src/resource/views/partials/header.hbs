@@ -5,12 +5,12 @@
     </a>
 
   </div>
-  <div class="header-search">
-    <input class="header-search__input" placeholder="Search all forums">
-    <div class="header-search__button">
-      <i class="fas fa-search"></i>
-    </div>
-  </div>
+  <form class="header-search" action = "/search" method="get">
+    <input class="header-search__input" name="inp_search" placeholder="Search all forums" oninput="search">
+    <input type="submit" class="btn btn-primary" id="btn_search" value="Gui">
+      
+    </input>
+  </form>
   <div class="header-post">
     <div class="header-post__icon">
       <i class="far fa-plus-square"></i>

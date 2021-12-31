@@ -11,6 +11,7 @@ const port = 3030;
 
 const route = require('./routes');
 const db = require('./config/db');
+
 const { type } = require('os');
 
 //connect to DB
@@ -19,6 +20,7 @@ db.connect();
 //use static folder
 
 app.use(express.static(path.join(__dirname, 'public')));
+console.log(path.join(__dirname, 'public'))
 
 app.use(
     express.urlencoded({
@@ -44,6 +46,7 @@ app.engine(
 );
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resource', 'views'));
+
 
 // console.log(path.join(__dirname, 'resource/views'));
 
