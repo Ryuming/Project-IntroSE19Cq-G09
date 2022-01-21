@@ -25,11 +25,14 @@ class SiteController {
       .lean()
       .exec(function (err, document) {
         if (document.length === 0 || document[0].password !== password ) {
-          res.redirect('/login');
+        let a = 1;
+        res.render("login", {layout: "login", a })
         } else {
           res.redirect("/");
         }
+        
       });
+      return;
   }
 
   //[GET] /search
