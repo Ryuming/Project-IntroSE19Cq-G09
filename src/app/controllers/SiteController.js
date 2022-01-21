@@ -1,6 +1,7 @@
 const user = require("../models/Course");
 const data = require("../models/data");
 
+const view = "../../resource/views/";
 const { mutipleMongooseToObject } = require("../../util/mongoose");
 
 class SiteController {
@@ -17,24 +18,25 @@ class SiteController {
   }
 
   checklogin(req, res, next) {
-    console.log(req.body);
-    user
-      .find({
-        username: req.body.username,
-        password: req.body.password,
-      })
-      .then(() => res.render("home"))
-      .catch(next);
+    const username = req.body.username;
+    const password = req.body.password;
+    const document = user
+      .find({ username: { $regex: username, $options: "i" } })
+      .lean()
+      .exec(function (err, document) {
+        if (document.length === 0 || document[0].password !== password ) {
+          res.redirect('/login');
+        } else {
+          res.redirect("/");
+        }
+      });
   }
 
   //[GET] /search
   search(req, res) {
     const inp_search = req.query.inp_search;
-    console.log(inp_search);
-    let tmp =`/^${inp_search}/i`
-    console.log(tmp);
     data
-      .find({ title: { $regex:  inp_search,$options: "i"} })
+      .find({ title: { $regex: inp_search, $options: "i" } })
       .lean()
       .exec(function (err, document) {
         res.render("search", { document });
